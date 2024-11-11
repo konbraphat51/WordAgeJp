@@ -1,1 +1,2 @@
 from WordAgeJp.Evaluator.Evaluator import Evaluator
+from WordAgeJp.Evaluator.EvaluationResult import EvaluationResult
