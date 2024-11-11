@@ -1,5 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
+from WordAgeJp.Evaluator.EvaluationResult import EvaluationResult
 
 
 class Evaluator:
@@ -35,10 +36,18 @@ class Evaluator:
 
         return ratings
 
-    def process(self, surfaces: list[str]) -> None:
+    def process(self, surfaces: list[str]) -> EvaluationResult:
         """
         receive surfaces data and process them
         """
+
+        result = EvaluationResult()
+
+        for surface in surfaces:
+            if surface in self.ratings:
+                result.ratings[surface] = result.ratings.get(surface, 0) + self.ratings[surface]
+
+        return result
 
 if __name__ == "__main__":
     instance = Evaluator()
