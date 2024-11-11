@@ -9,15 +9,14 @@ class Tokenizer:
 
     def __init__(self) -> None:
         self.stopwords = set(["", "。", "、"])
+        self.tagger = Tagger()
 
     def tokenize(self, text: str) -> TokenizedData:
         """
         Tokenize text
         """
-
-        tagger = Tagger()
-        tagger.parse("")
-        node = tagger.parseToNode(text)
+        
+        node = self.tagger.parseToNode(text)
         tokenized_data = TokenizedData()
         while node:
             surface = node.surface
