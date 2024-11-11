@@ -45,7 +45,9 @@ class Evaluator:
 
         for surface in surfaces:
             if surface in self.ratings:
-                result.ratings[surface] = result.ratings.get(surface, 0) + self.ratings[surface]
+                result.ratings_count[surface] = result.ratings_count.get(surface, 0) + self.ratings[surface]
+
+        result.update()
 
         return result
 
