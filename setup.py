@@ -29,16 +29,9 @@ setup(
     packages=find_packages(exclude=["tests", "Docs"]),
     test_suite="tests",
     python_requires=">=3.8",
-    package_data={
-        "WordAgeJp": [
-            "Assets/**"
-        ]
-    },
+    package_data={"WordAgeJp": ["Assets/**"]},
     include_package_data=True,
-    install_requires=[
-        "mecab-python3",
-        "unidic-lite"
-    ],
+    install_requires=["mecab-python3", "unidic-lite"],
     license="MIT License",
     zip_safe=False,
     keywords=[
