@@ -36,16 +36,17 @@ class Evaluator:
 
         return ratings
 
-    def process(self, surfaces: list[str]) -> EvaluationResult:
+    def process(self, infinitives: list[str]) -> EvaluationResult:
         """
         receive surfaces data and process them
         """
 
         result = EvaluationResult()
 
-        for surface in surfaces:
-            if surface in self.ratings:
-                result.ratings_count[surface] = result.ratings_count.get(surface, 0) + self.ratings[surface]
+        for infinitive in infinitives:
+            if infinitive in self.ratings:
+                rating = self.ratings[infinitive]
+                result.ratings_count[rating] = result.ratings_count.get(rating, 0) + 1
 
         result.update()
 
